@@ -6,7 +6,7 @@ if [0, 6].include?(Date.today.wday)
   exit
 end
 
-# sleep(rand(1..9) * 60)
+sleep(rand(1..9) * 60)
 
 wait = Selenium::WebDriver::Wait.new(:timeout => 30)
 driver = Selenium::WebDriver.for :firefox
