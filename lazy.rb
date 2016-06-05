@@ -20,12 +20,13 @@ begin
   driver.find_element(:id, 'password').send_keys ENV['PASSWORD']
   driver.find_element(:id, 'Login').submit
 
+  wait.until { driver.find_element(:id, '06628000004tnsn') }
   driver.switch_to.frame(driver.find_element(:id, '06628000004tnsn'));
 
   if ARGV[0] == 'i'
     wait.until do
       e = driver.find_element(:id, 'btnStInput')
-      if attribute('class').split(' ').include?('pw_btnnst')
+      if e.attribute('class').split(' ').include?('pw_btnnst')
         e
       end
     end
@@ -33,7 +34,7 @@ begin
   else
     wait.until do
       e = driver.find_element(:id, 'btnEtInput')
-      if attribute('class').split(' ').include?('pw_btnnet')
+      if e.attribute('class').split(' ').include?('pw_btnnet')
         e
       end
     end
